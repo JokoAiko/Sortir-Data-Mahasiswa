@@ -5,10 +5,10 @@ if (isset($_POST['simpan'])) {
     $nama_mhs = mysqli_real_escape_string($koneksi, $_POST['nama_mhs']);
 
     // Menggunakan Prepared Statements untuk mencegah SQL Injection
-    $stmt = mysqli_prepare($koneksi, "INSERT INTO data_mahasiswa (nim, nama_mhs) VALUES (?, ?)");
-    mysqli_stmt_bind_param($stmt, 'ss', $nim, $nama_mhs);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+    $prepared = mysqli_prepare($koneksi, "INSERT INTO data_mahasiswa (nim, nama_mhs) VALUES (?, ?)");
+    mysqli_stmt_bind_param($prepared, 'ss', $nim, $nama_mhs);
+    mysqli_stmt_execute($prepared);
+    mysqli_stmt_close($prepared);
 }
 
 // Proses sorting berdasarkan input dari form
@@ -44,7 +44,7 @@ $data_mahasiswa = mysqli_query($koneksi, "SELECT * FROM data_mahasiswa ORDER BY 
     </script>
 </head>
 
-<body>
+<body class="bg-slate-100">
     <header class="m-8">
         <h1 class="font-inter text-4xl font-normal leading-5 text-center">Data Mahasiswa</h1>
     </header>
@@ -53,9 +53,9 @@ $data_mahasiswa = mysqli_query($koneksi, "SELECT * FROM data_mahasiswa ORDER BY 
         <form class="w-full" action="" onsubmit="return isikolom()" method="post">
             <table class="w-full ml-4">
                 <tr>
-                    <td><input class="input-field m-2 p-2 border border-gray-300 rounded-lg w-full" type="text"
+                    <td><input class="input-field m-2 p-2 border border-black rounded-lg w-full" type="text"
                             name="nim" placeholder="NIM"></td>
-                    <td><input class="input-field m-2 p-2 border border-gray-300 rounded-lg w-full" type="text"
+                    <td><input class="input-field m-2 p-2 border border-black rounded-lg w-full" type="text"
                             name="nama_mhs" placeholder="Nama Mahasiswa"></td>
                     <td><input class="bg-blue-500 m-2 text-white p-2 rounded-lg" type="submit" name="simpan"
                             value="Proses"></td>
