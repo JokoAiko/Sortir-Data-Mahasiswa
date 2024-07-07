@@ -53,12 +53,12 @@ $data_mahasiswa = mysqli_query($koneksi, "SELECT * FROM data_mahasiswa ORDER BY 
         <form class="w-full" action="" onsubmit="return isikolom()" method="post">
             <table class="w-full ml-4">
                 <tr>
-                    <td><input class="input-field m-2 p-2 border border-black rounded-lg w-full" type="text"
+                    <td><input class="input-field mr-4 my-2 p-2 border border-black rounded-lg w-full" type="text"
                             name="nim" placeholder="NIM"></td>
-                    <td><input class="input-field m-2 p-2 border border-black rounded-lg w-full" type="text"
+                    <td><input class="input-field mr-4 my-2 p-2 border border-black rounded-lg w-full" type="text"
                             name="nama_mhs" placeholder="Nama Mahasiswa"></td>
                     <td><input class="bg-blue-500 m-2 text-white p-2 rounded-lg" type="submit" name="simpan"
-                            value="Proses"></td>
+                            value="Tambah"></td>
                 </tr>
             </table>
         </form>
@@ -93,7 +93,7 @@ $data_mahasiswa = mysqli_query($koneksi, "SELECT * FROM data_mahasiswa ORDER BY 
                 <tr>
                     <td class="border p-2"><?= $no++; ?>.</td>
                     <td class="border p-2"><?= $tampil_mhs['nim']; ?></td>
-                    <td class="border p-2"><?= $tampil_mhs['nama_mhs']; ?></td>
+                    <td class="border p-2 hover:bg-yellow-200"><?= $tampil_mhs['nama_mhs']; ?></td>
                 </tr>
             <?php } ?>
         </table>
